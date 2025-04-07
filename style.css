@@ -10,34 +10,38 @@ body {
   
   h1 {
     margin-bottom: 20px;
+    font-size: 6vw;
   }
   
   #super-board {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
     justify-content: center;
-    margin-bottom: 20px;
+    max-width: 100vw;
+    margin: 0 auto 20px auto;
+    padding: 1vw;
   }
   
   .board {
     display: grid;
-    grid-template-columns: repeat(3, 60px);
-    grid-template-rows: repeat(3, 60px);
-    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1vw;
+    aspect-ratio: 1 / 1;
     border: 2px solid #888;
-    padding: 5px;
     background-color: #2a2a2a;
+    padding: 1vw;
   }
   
   .cell {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    font-size: clamp(16px, 6vw, 28px);
     background-color: #444;
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
   }
   
   .cell:disabled {
@@ -52,9 +56,25 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 18px);
+    margin-top: 10px;
   }
   
   button:hover {
     background-color: #0088cc;
+  }
+  
+  /* Für kleine Displays */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 8vw;
+    }
+  
+    #super-board {
+      gap: 3vw;
+    }
+  
+    .board {
+      gap: 2vw;
+    }
   }
